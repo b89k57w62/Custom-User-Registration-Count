@@ -8,7 +8,7 @@ total_registered_users:
 
 registration_count_text:
   type: string
-  default: "Total Registered Users"
+  default: "总注册用户数"
   description:
     en: "Text to display before the registration count"
     zh_TW: "註冊人數前顯示的文字"

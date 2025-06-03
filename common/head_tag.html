@@ -1,7 +1,7 @@
 <script type="text/discourse-plugin" version="0.8">
   api.onPageChange(() => {
     const totalUsers = settings.total_registered_users;
-    const displayText = settings.registration_count_text || '总注册用户数';
+    const displayText = settings.registration_count_text;
     
     if (totalUsers && totalUsers > 0) {
       const existing = document.querySelector('.custom-registration-count');

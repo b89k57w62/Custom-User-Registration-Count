@@ -1,0 +1,65 @@
+<script type="text/discourse-plugin" version="0.8">
+  api.onPageChange(() => {
+    const totalUsers = settings.total_registered_users;
+    const displayText = settings.registration_count_text || 'Total Registered Users';
+    
+    if (totalUsers && totalUsers > 0) {
+      const existing = document.querySelector('.custom-registration-count');
+      if (existing) {
+        existing.remove();
+      }
+      
+      // 檢測是否為手機版
+      const isMobile = window.innerWidth <= 767;
+      const isTablet = window.innerWidth > 767 && window.innerWidth <= 1024;
+      
+      const container = document.createElement('div');
+      container.className = 'custom-registration-count';
+      
+      // 根據設備類型調整顯示格式
+      let formattedNumber = totalUsers.toLocaleString();
+      
+      // 手機版使用更簡潔的數字格式
+      if (isMobile && totalUsers >= 1000) {
+        if (totalUsers >= 1000000) {
+          formattedNumber = (totalUsers / 1000000).toFixed(1) + 'M';
+        } else if (totalUsers >= 1000) {
+          formattedNumber = (totalUsers / 1000).toFixed(1) + 'K';
+        }
+      }
+      
+      container.innerHTML = `
+        <div class="registration-count-container">
+          <span class="registration-count-text">${displayText}:</span>
+          <span class="registration-count-number">${formattedNumber}</span>
+        </div>
+      `;
+      
+      // 為手機版添加特殊屬性
+      if (isMobile) {
+        container.setAttribute('data-mobile', 'true');
+      }
+      
+      const target = document.querySelector('#main-outlet') || 
+                    document.querySelector('.container') ||
+                    document.querySelector('body');
+      
+      if (target) {
+        target.insertBefore(container, target.firstChild);
+      }
+    }
+  });
+  
+  // 監聽視窗大小變化，響應式更新
+  api.onPageChange(() => {
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        // 重新觸發顯示邏輯
+        const event = new Event('discourse:page-changed');
+        window.dispatchEvent(event);
+      }, 250);
+    });
+  });
+</script> 

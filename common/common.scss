@@ -30,37 +30,66 @@
   }
 }
 
-// 響應式設計 - 手機版
+// 手機版優化 (寬度 < 768px)
 @media screen and (max-width: 767px) {
   .custom-registration-count {
-    margin: 15px 10px;
+    margin: 10px 15px;
     padding: 12px;
+    border-radius: 6px;
     
     .registration-count-container {
       flex-direction: column;
       gap: 8px;
       
       .registration-count-text {
-        font-size: 1em;
+        font-size: 0.95em;
+        margin-bottom: 2px;
       }
       
       .registration-count-number {
-        font-size: 1.3em;
+        font-size: 1.4em;
+        padding: 8px 16px;
+        border-radius: 16px;
       }
     }
   }
 }
 
-// Dark 主題支援
+// 小手機版 (寬度 < 480px)
+@media screen and (max-width: 479px) {
+  .custom-registration-count {
+    margin: 8px 10px;
+    padding: 10px;
+    
+    .registration-count-container {
+      .registration-count-text {
+        font-size: 0.9em;
+      }
+      
+      .registration-count-number {
+        font-size: 1.3em;
+        padding: 6px 14px;
+      }
+    }
+  }
+}
+
+// 深色主題支援
 .dark-mode .custom-registration-count {
   background: var(--secondary);
   border-color: var(--primary-low);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 // 動畫效果
 .custom-registration-count {
   opacity: 0;
   animation: fadeInUp 0.5s ease-out forwards;
+  
+  // 手機版減少動畫時間
+  @media screen and (max-width: 767px) {
+    animation-duration: 0.3s;
+  }
 }
 
 @keyframes fadeInUp {
@@ -71,5 +100,20 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// 特別針對手機瀏覽器的優化
+@media screen and (max-width: 767px) {
+  // 確保在手機上不會造成水平滾動
+  .custom-registration-count {
+    max-width: calc(100vw - 20px);
+    overflow: hidden;
+  }
+  
+  // 手機版字體大小調整
+  .custom-registration-count .registration-count-number {
+    word-break: keep-all;
+    white-space: nowrap;
   }
 } 

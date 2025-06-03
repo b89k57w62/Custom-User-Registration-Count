@@ -1,0 +1,99 @@
+// 手機版專用樣式
+.custom-registration-count {
+  // 手機版特殊布局調整
+  margin: 8px 12px;
+  padding: 12px 8px;
+  border-radius: 6px;
+  
+  .registration-count-container {
+    flex-direction: column;
+    gap: 6px;
+    
+    .registration-count-text {
+      font-size: 0.9em;
+      line-height: 1.3;
+      color: var(--primary-high);
+    }
+    
+    .registration-count-number {
+      font-size: 1.4em;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 12px;
+      letter-spacing: 0.5px;
+      
+      // 數字格式化顯示優化
+      font-variant-numeric: tabular-nums;
+    }
+  }
+  
+  // 手機版陰影效果
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  
+  // 觸控友好的間距
+  touch-action: manipulation;
+}
+
+// 橫屏手機優化
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .custom-registration-count {
+    margin: 6px 15px;
+    padding: 8px;
+    
+    .registration-count-container {
+      flex-direction: row;
+      gap: 12px;
+      align-items: center;
+      
+      .registration-count-text {
+        font-size: 0.85em;
+      }
+      
+      .registration-count-number {
+        font-size: 1.2em;
+        padding: 6px 12px;
+      }
+    }
+  }
+}
+
+// 超小屏幕 (寬度 < 360px)
+@media screen and (max-width: 359px) {
+  .custom-registration-count {
+    margin: 6px 8px;
+    padding: 10px 6px;
+    
+    .registration-count-container {
+      .registration-count-text {
+        font-size: 0.85em;
+      }
+      
+      .registration-count-number {
+        font-size: 1.25em;
+        padding: 6px 12px;
+      }
+    }
+  }
+}
+
+// iOS Safari 特殊優化
+@supports (-webkit-appearance: none) {
+  .custom-registration-count {
+    // 修復 iOS Safari 的渲染問題
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    
+    .registration-count-number {
+      // 確保字體在 iOS 上正確顯示
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+}
+
+// PWA/Standalone 模式優化
+@media all and (display-mode: standalone) {
+  .custom-registration-count {
+    margin-top: 12px; // 為 PWA 模式增加頂部間距
+  }
+} 

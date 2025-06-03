@@ -1,10 +1,7 @@
 <script type="text/discourse-plugin" version="0.8">
   api.onPageChange(() => {
     const totalUsers = settings.total_registered_users;
-    const defaultText = I18n.t(themePrefix("registration_count_text"), { 
-      defaultValue: "Total Registered Users" 
-    });
-    const displayText = settings.registration_count_text || defaultText;
+    const displayText = settings.registration_count_text || '总注册用户数';
     
     if (totalUsers && totalUsers > 0) {
       const existing = document.querySelector('.custom-registration-count');

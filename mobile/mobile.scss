@@ -1,6 +1,4 @@
-// 手機版專用樣式
 .custom-registration-count {
-  // 手機版特殊布局調整
   margin: 8px 12px;
   padding: 12px 8px;
   border-radius: 6px;
@@ -22,19 +20,15 @@
       border-radius: 12px;
       letter-spacing: 0.5px;
       
-      // 數字格式化顯示優化
       font-variant-numeric: tabular-nums;
     }
   }
   
-  // 手機版陰影效果
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   
-  // 觸控友好的間距
   touch-action: manipulation;
 }
 
-// 手機版sidebar專用樣式
 .sidebar-sections .custom-registration-count,
 #sidebar-wrapper .custom-registration-count,
 .sidebar .custom-registration-count {
@@ -58,7 +52,6 @@
   }
 }
 
-// 橫屏手機優化
 @media screen and (max-width: 767px) and (orientation: landscape) {
   .custom-registration-count {
     margin: 6px 15px;
@@ -80,7 +73,6 @@
     }
   }
   
-  // 橫屏sidebar樣式
   .sidebar-sections .custom-registration-count,
   #sidebar-wrapper .custom-registration-count,
   .sidebar .custom-registration-count {
@@ -103,7 +95,6 @@
   }
 }
 
-// 超小屏幕 (寬度 < 360px)
 @media screen and (max-width: 359px) {
   .custom-registration-count {
     margin: 6px 8px;
@@ -121,7 +112,6 @@
     }
   }
   
-  // 超小屏sidebar樣式
   .sidebar-sections .custom-registration-count,
   #sidebar-wrapper .custom-registration-count,
   .sidebar .custom-registration-count {
@@ -141,28 +131,23 @@
   }
 }
 
-// iOS Safari 特殊優化
 @supports (-webkit-appearance: none) {
   .custom-registration-count {
-    // 修復 iOS Safari 的渲染問題
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     
     .registration-count-number {
-      // 確保字體在 iOS 上正確顯示
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
   }
 }
 
-// PWA/Standalone 模式優化
 @media all and (display-mode: standalone) {
   .custom-registration-count {
-    margin-top: 12px; // 為 PWA 模式增加頂部間距
+    margin-top: 12px;
   }
   
-  // PWA模式sidebar樣式
   .sidebar-sections .custom-registration-count,
   #sidebar-wrapper .custom-registration-count,
   .sidebar .custom-registration-count {

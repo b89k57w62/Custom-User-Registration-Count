@@ -1,4 +1,5 @@
 zh_TW:
+  registration_count_text: "總註冊用戶數"
   theme_metadata:
     settings:
       total_registered_users: "總註冊人數"

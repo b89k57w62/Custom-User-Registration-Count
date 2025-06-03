@@ -1,0 +1,6 @@
+zh_CN:
+  registration_count_text: "总注册用户数"
+  theme_metadata:
+    settings:
+      total_registered_users: "总注册用户数"
+      registration_count_text: "注册用户数显示文字" 

@@ -40,12 +40,24 @@
         container.setAttribute('data-mobile', 'true');
       }
       
-      const target = document.querySelector('#main-outlet') || 
+      // 修改target選擇器，優先選擇sidebar，如果沒有sidebar則fallback到原來的位置
+      const target = document.querySelector('.sidebar-sections') || 
+                    document.querySelector('#sidebar-wrapper') ||
+                    document.querySelector('.sidebar') ||
+                    document.querySelector('#main-outlet') || 
                     document.querySelector('.container') ||
                     document.querySelector('body');
       
       if (target) {
-        target.insertBefore(container, target.firstChild);
+        // 如果是sidebar相關的容器，插入到開頭
+        if (target.classList.contains('sidebar-sections') || 
+            target.id === 'sidebar-wrapper' || 
+            target.classList.contains('sidebar')) {
+          target.insertBefore(container, target.firstChild);
+        } else {
+          // 其他情況維持原來的邏輯
+          target.insertBefore(container, target.firstChild);
+        }
       }
     }
   });

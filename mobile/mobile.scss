@@ -34,6 +34,30 @@
   touch-action: manipulation;
 }
 
+// 手機版sidebar專用樣式
+.sidebar-sections .custom-registration-count,
+#sidebar-wrapper .custom-registration-count,
+.sidebar .custom-registration-count {
+  margin: 6px 8px;
+  padding: 10px 6px;
+  
+  .registration-count-container {
+    gap: 5px;
+    
+    .registration-count-text {
+      font-size: 0.8em;
+      line-height: 1.2;
+    }
+    
+    .registration-count-number {
+      font-size: 1.2em;
+      padding: 6px 12px;
+      border-radius: 10px;
+      letter-spacing: 0.3px;
+    }
+  }
+}
+
 // 橫屏手機優化
 @media screen and (max-width: 767px) and (orientation: landscape) {
   .custom-registration-count {
@@ -55,6 +79,28 @@
       }
     }
   }
+  
+  // 橫屏sidebar樣式
+  .sidebar-sections .custom-registration-count,
+  #sidebar-wrapper .custom-registration-count,
+  .sidebar .custom-registration-count {
+    margin: 4px 6px;
+    padding: 6px 8px;
+    
+    .registration-count-container {
+      flex-direction: column;
+      gap: 4px;
+      
+      .registration-count-text {
+        font-size: 0.75em;
+      }
+      
+      .registration-count-number {
+        font-size: 1.1em;
+        padding: 4px 8px;
+      }
+    }
+  }
 }
 
 // 超小屏幕 (寬度 < 360px)
@@ -71,6 +117,25 @@
       .registration-count-number {
         font-size: 1.25em;
         padding: 6px 12px;
+      }
+    }
+  }
+  
+  // 超小屏sidebar樣式
+  .sidebar-sections .custom-registration-count,
+  #sidebar-wrapper .custom-registration-count,
+  .sidebar .custom-registration-count {
+    margin: 4px 6px;
+    padding: 8px 4px;
+    
+    .registration-count-container {
+      .registration-count-text {
+        font-size: 0.75em;
+      }
+      
+      .registration-count-number {
+        font-size: 1.1em;
+        padding: 4px 8px;
       }
     }
   }
@@ -95,5 +160,12 @@
 @media all and (display-mode: standalone) {
   .custom-registration-count {
     margin-top: 12px; // 為 PWA 模式增加頂部間距
+  }
+  
+  // PWA模式sidebar樣式
+  .sidebar-sections .custom-registration-count,
+  #sidebar-wrapper .custom-registration-count,
+  .sidebar .custom-registration-count {
+    margin-top: 8px;
   }
 } 

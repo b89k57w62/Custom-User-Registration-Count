@@ -1,0 +1,13 @@
+{
+  "name": "Custom User Registration Count",
+  "about_url": "",
+  "license_url": "",
+  "component": true,
+  "color_schemes": {},
+  "modifiers": {},
+  "learn_more": "",
+  "assets": {},
+  "git_repo": "",
+  "minimum_discourse_version": "2.8.0",
+  "maximum_discourse_version": ""
+} 

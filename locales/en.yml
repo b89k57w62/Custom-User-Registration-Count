@@ -1,0 +1,5 @@
+en:
+  theme_metadata:
+    settings:
+      total_registered_users: "Total Registered Users Count"
+      registration_count_text: "Registration Count Display Text" 

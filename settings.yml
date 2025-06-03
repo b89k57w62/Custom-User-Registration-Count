@@ -1,0 +1,13 @@
+total_registered_users:
+  type: integer
+  default: 0
+  description:
+    en: "Enter the total number of registered users to display on the homepage"
+    zh_TW: "輸入要在首頁顯示的總註冊人數"
+
+registration_count_text:
+  type: string
+  default: "Total Registered Users"
+  description:
+    en: "Text to display before the registration count"
+    zh_TW: "註冊人數前顯示的文字" 

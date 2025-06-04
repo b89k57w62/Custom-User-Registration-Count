@@ -1,7 +1,24 @@
 <script type="text/discourse-plugin" version="0.8">
   api.onPageChange(() => {
     const totalUsers = settings.total_registered_users;
-    const displayText = settings.registration_count_text;
+    
+    let defaultText;
+    const currentLocale = I18n.locale || 'en';
+    
+    switch(currentLocale) {
+      case 'zh_CN':
+        defaultText = '总注册用户数';
+        break;
+      case 'zh_TW':
+        defaultText = '總註冊用戶數';
+        break;
+      case 'en':
+      default:
+        defaultText = 'Total Registered Users';
+        break;
+    }
+    
+    const displayText = settings.registration_count_text || defaultText;
     
     if (totalUsers && totalUsers > 0) {
       const existing = document.querySelector('.custom-registration-count');

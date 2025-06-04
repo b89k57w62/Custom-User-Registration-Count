@@ -8,8 +8,8 @@ total_registered_users:
 
 registration_count_text:
   type: string
-  default: "总注册用户数"
+  default: ""
   description:
-    en: "Text to display before the registration count"
-    zh_TW: "註冊人數前顯示的文字"
-    zh_CN: "注册用户数前显示的文字" 
+    en: "Text to display before the registration count (leave empty to use automatic language detection)"
+    zh_TW: "註冊人數前顯示的文字（留空則自動根據語系顯示）"
+    zh_CN: "注册用户数前显示的文字（留空则自动根据语系显示）" 

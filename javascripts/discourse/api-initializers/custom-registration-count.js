@@ -5,7 +5,7 @@ export default apiInitializer("0.8", (api) => {
     fetch('/about.json')
       .then(response => response.json())
       .then(data => {
-        const realUsers = data.about?.stats?.user_count || 0;
+        const realUsers = data.about?.stats?.users_count || 0;
         const fakeUsers = settings.total_registered_users || 0;
         const totalUsers = realUsers + fakeUsers;
         console.log("about data:", data);

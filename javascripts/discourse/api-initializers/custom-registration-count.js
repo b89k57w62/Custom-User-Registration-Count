@@ -1,8 +1,12 @@
 import { apiInitializer } from "discourse/lib/api";
+import Site from "discourse/models/site";
 
 export default apiInitializer("0.8", (api) => {
   api.onPageChange(() => {
-    const totalUsers = settings.total_registered_users;
+    const stats = Site.currentProp('stats');
+    const realUsers = stats?.user_count || 0;
+    const fakeUsers = settings.total_registered_users || 0;
+    const totalUsers = realUsers + fakeUsers;
     
     let defaultText;
     const currentLocale = I18n.locale || 'en';

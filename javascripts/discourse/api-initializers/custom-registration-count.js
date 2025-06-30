@@ -2,19 +2,19 @@ import { apiInitializer } from "discourse/lib/api";
 
 export default apiInitializer("0.8", (api) => {
   api.onPageChange(() => {
-    fetch('/site.json')
+    fetch('/about.json')
       .then(response => response.json())
       .then(data => {
-        const realUsers = data.user_count || 0;
+        const realUsers = data.about?.stats?.user_count || 0;
         const fakeUsers = settings.total_registered_users || 0;
         const totalUsers = realUsers + fakeUsers;
-        console.log("site data:", data);
+        console.log("about data:", data);
         console.log("Real users:", realUsers);
         console.log("Total users:", totalUsers);
         displayUserCount(totalUsers);
       })
       .catch(error => {
-        console.log("Failed to fetch site data:", error);
+        console.log("Failed to fetch about data:", error);
         const fakeUsers = settings.total_registered_users || 0;
         if (fakeUsers > 0) {
           displayUserCount(fakeUsers);

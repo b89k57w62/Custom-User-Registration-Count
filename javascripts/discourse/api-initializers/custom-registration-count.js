@@ -7,7 +7,9 @@ export default apiInitializer("0.8", (api) => {
     const realUsers = stats?.user_count || 0;
     const fakeUsers = settings.total_registered_users || 0;
     const totalUsers = realUsers + fakeUsers;
-    
+    console.log("stats:", stats);
+    console.log("Real users:", realUsers);
+    console.log("Total users:", totalUsers);
     let defaultText;
     const currentLocale = I18n.locale || 'en';
     

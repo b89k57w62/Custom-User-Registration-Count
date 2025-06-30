@@ -1,15 +1,28 @@
 import { apiInitializer } from "discourse/lib/api";
-import Site from "discourse/models/site";
 
 export default apiInitializer("0.8", (api) => {
   api.onPageChange(() => {
-    const stats = Site.currentProp('stats');
-    const realUsers = stats?.user_count || 0;
-    const fakeUsers = settings.total_registered_users || 0;
-    const totalUsers = realUsers + fakeUsers;
-    console.log("stats:", stats);
-    console.log("Real users:", realUsers);
-    console.log("Total users:", totalUsers);
+    fetch('/site.json')
+      .then(response => response.json())
+      .then(data => {
+        const realUsers = data.user_count || 0;
+        const fakeUsers = settings.total_registered_users || 0;
+        const totalUsers = realUsers + fakeUsers;
+        console.log("site data:", data);
+        console.log("Real users:", realUsers);
+        console.log("Total users:", totalUsers);
+        displayUserCount(totalUsers);
+      })
+      .catch(error => {
+        console.log("Failed to fetch site data:", error);
+        const fakeUsers = settings.total_registered_users || 0;
+        if (fakeUsers > 0) {
+          displayUserCount(fakeUsers);
+        }
+      });
+  });
+  
+  function displayUserCount(totalUsers) {
     let defaultText;
     const currentLocale = I18n.locale || 'en';
     
@@ -78,7 +91,7 @@ export default apiInitializer("0.8", (api) => {
         }
       }
     }
-  });
+  }
   
   api.onPageChange(() => {
     let resizeTimer;

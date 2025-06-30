@@ -7,14 +7,10 @@ export default apiInitializer("0.8", (api) => {
       .then(data => {
         const realUsers = data.about?.stats?.users_count || 0;
         const fakeUsers = settings.total_registered_users || 0;
-        const totalUsers = realUsers + fakeUsers;
-        console.log("about data:", data);
-        console.log("Real users:", realUsers);
-        console.log("Total users:", totalUsers);
+        const totalUsers = realUsers + fakeUsers;      
         displayUserCount(totalUsers);
       })
       .catch(error => {
-        console.log("Failed to fetch about data:", error);
         const fakeUsers = settings.total_registered_users || 0;
         if (fakeUsers > 0) {
           displayUserCount(fakeUsers);

@@ -71,24 +71,12 @@ export default apiInitializer("0.8", (api) => {
         container.classList.add('mobile-compact');
       }
       
-      let target;
-      if (isMobile) {
-        target = document.querySelector('.list-controls') || 
-                document.querySelector('.navigation-topics') ||
-                document.querySelector('.sidebar-sections') || 
-                document.querySelector('#sidebar-wrapper') ||
-                document.querySelector('.sidebar') ||
-                document.querySelector('#main-outlet') || 
-                document.querySelector('.container') ||
-                document.querySelector('body');
-      } else {
-        target = document.querySelector('.sidebar-sections') || 
-                document.querySelector('#sidebar-wrapper') ||
-                document.querySelector('.sidebar') ||
-                document.querySelector('#main-outlet') || 
-                document.querySelector('.container') ||
-                document.querySelector('body');
-      }
+      const target = document.querySelector('.sidebar-sections') || 
+                    document.querySelector('#sidebar-wrapper') ||
+                    document.querySelector('.sidebar') ||
+                    document.querySelector('#main-outlet') || 
+                    document.querySelector('.container') ||
+                    document.querySelector('body');
       
       if (target) {
         if (target.classList.contains('sidebar-sections') || 

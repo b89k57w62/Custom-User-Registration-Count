@@ -35,7 +35,6 @@ export default apiInitializer("0.8", (api) => {
         break;
     }
     
-    // 修復settings訪問
     const themeSettings = (typeof settings !== 'undefined') ? settings : {};
     const displayText = themeSettings.registration_count_text || defaultText;
     
@@ -68,15 +67,9 @@ export default apiInitializer("0.8", (api) => {
         </div>
       `;
       
-      if (isMobile) {
-        container.setAttribute('data-mobile', 'true');
-        container.classList.add('mobile-compact');
-      }
-      
       let target;
       
       if (isMobile) {
-        // 移動端：嘗試多種策略找到側邊欄容器
         const mobileSelectors = [
           '.sidebar-sections',
           '#sidebar-wrapper', 
@@ -94,14 +87,11 @@ export default apiInitializer("0.8", (api) => {
         for (const selector of mobileSelectors) {
           target = document.querySelector(selector);
           if (target) {
-            console.log(`Mobile target found: ${selector}`);
             break;
           }
         }
         
-        // 如果還是找不到，等待DOM更新後重試
         if (!target) {
-          console.log('No mobile target found, retrying after delay...');
           setTimeout(() => {
             displayUserCount(totalUsers);
           }, 500);
@@ -109,7 +99,6 @@ export default apiInitializer("0.8", (api) => {
         }
         
       } else {
-        // 桌面和平板設備：保持原有邏輯
         target = document.querySelector('.sidebar-sections') || 
                 document.querySelector('#sidebar-wrapper') ||
                 document.querySelector('.sidebar') ||
@@ -119,11 +108,9 @@ export default apiInitializer("0.8", (api) => {
       }
       
       if (target) {
-        // 對於漢堡菜單相關的容器，插入到適當位置
         if (target.classList.contains('hamburger-panel') || 
             target.classList.contains('menu-panel') ||
             target.classList.contains('sidebar-hamburger-dropdown')) {
-          // 如果目標是漢堡菜單容器，尋找其中的sidebar-sections
           const sidebarSections = target.querySelector('.sidebar-sections');
           if (sidebarSections) {
             sidebarSections.insertBefore(container, sidebarSections.firstChild);
@@ -137,10 +124,6 @@ export default apiInitializer("0.8", (api) => {
         } else {
           target.insertBefore(container, target.firstChild);
         }
-        
-        console.log('Registration count component inserted successfully');
-      } else {
-        console.log('No suitable target found for registration count component');
       }
     }
   }

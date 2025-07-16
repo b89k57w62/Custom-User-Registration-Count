@@ -57,84 +57,6 @@
   }
 }
 
-@media screen and (max-width: 767px) {
-  .custom-registration-count {
-    margin: 10px 15px;
-    padding: 12px;
-    border-radius: 6px;
-    
-    .registration-count-container {
-      flex-direction: column;
-      gap: 8px;
-      
-      .registration-count-text {
-        font-size: 0.95em;
-        margin-bottom: 2px;
-      }
-      
-      .registration-count-number {
-        font-size: 1.4em;
-        padding: 8px 16px;
-        border-radius: 16px;
-      }
-    }
-  }
-  
-  .sidebar-sections .custom-registration-count,
-  #sidebar-wrapper .custom-registration-count,
-  .sidebar .custom-registration-count {
-    margin: 8px 5px;
-    padding: 10px 8px;
-    
-    .registration-count-container {
-      .registration-count-text {
-        font-size: 0.85em;
-      }
-      
-      .registration-count-number {
-        font-size: 1.2em;
-        padding: 5px 10px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .custom-registration-count {
-    margin: 8px 10px;
-    padding: 10px;
-    
-    .registration-count-container {
-      .registration-count-text {
-        font-size: 0.9em;
-      }
-      
-      .registration-count-number {
-        font-size: 1.3em;
-        padding: 6px 14px;
-      }
-    }
-  }
-  
-  .sidebar-sections .custom-registration-count,
-  #sidebar-wrapper .custom-registration-count,
-  .sidebar .custom-registration-count {
-    margin: 6px 3px;
-    padding: 8px 6px;
-    
-    .registration-count-container {
-      .registration-count-text {
-        font-size: 0.8em;
-      }
-      
-      .registration-count-number {
-        font-size: 1.1em;
-        padding: 4px 8px;
-      }
-    }
-  }
-}
-
 .dark-mode .custom-registration-count {
   background: var(--secondary);
   border-color: var(--primary-low);
@@ -144,10 +66,6 @@
 .custom-registration-count {
   opacity: 0;
   animation: fadeInUp 0.5s ease-out forwards;
-  
-  @media screen and (max-width: 767px) {
-    animation-duration: 0.3s;
-  }
 }
 
 @keyframes fadeInUp {
@@ -158,23 +76,5 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .custom-registration-count {
-    max-width: calc(100vw - 20px);
-    overflow: hidden;
-  }
-  
-  .custom-registration-count .registration-count-number {
-    word-break: keep-all;
-    white-space: nowrap;
-  }
-  
-  .sidebar-sections .custom-registration-count,
-  #sidebar-wrapper .custom-registration-count,
-  .sidebar .custom-registration-count {
-    max-width: 100%;
   }
 } 

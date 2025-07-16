@@ -1,3 +1,44 @@
+.custom-registration-count.mobile-compact {
+  margin: 4px 8px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background-color: var(--primary-very-low);
+  border: 1px solid var(--primary-low);
+  
+  .registration-count-container {
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    
+    .registration-count-text {
+      font-size: 0.75em;
+      line-height: 1;
+      color: var(--primary-medium);
+      font-weight: normal;
+    }
+    
+    .registration-count-number {
+      font-size: 1em;
+      font-weight: 600;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      color: var(--primary);
+      letter-spacing: normal;
+    }
+  }
+  
+  box-shadow: none;
+}
+
+.list-controls .custom-registration-count.mobile-compact,
+.navigation-topics .custom-registration-count.mobile-compact {
+  margin: 4px 0;
+  display: inline-flex;
+  width: auto;
+}
+
 .custom-registration-count {
   margin: 8px 12px;
   padding: 12px 8px;
